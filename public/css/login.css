@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.form-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #2193b0;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2193b0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #186480;
+}
+
+.toggle-text {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.toggle-text a {
+    color: #2193b0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 3px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.modal-content span#userEmail {
+    color: #2c7be5;
+    font-weight: 600;
+}
+
+.modal-content span#countdown {
+    color: #e63946;
+    font-weight: 600;
+}
+
+.modal-content .icon {
+    font-size: 40px;
+    color: #38b000;
+    margin-bottom: 20px;
+}
+
+.countdown-box {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #f0f4ff;
+    border: 2px solid #2c7be5;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #2c7be5;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.modal-content h2 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#resendEmailBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#resendEmailBtn:hover {
+    background-color: #2980b9;
+}
+
+.message {
+    margin-top: 15px;
+    font-size: 15px;
+    color: green;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
