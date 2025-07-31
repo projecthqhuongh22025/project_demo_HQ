@@ -1,0 +1,61 @@
+name: Triển khai Laravel lên Server
+
+# Chạy khi có push vào nhánh master
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Lấy mã nguồn từ repo
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      # 2. Cấu hình SSH để rsync code
+      - name: Cấu hình SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -t ed25519 -p ${{ secrets.SSH_PORT }} -H ${{ secrets.PUBLIC_IP }} >> ~/.ssh/known_hosts
+
+      # 3. Rsync mã nguồn Laravel lên VPS vào thư mục template
+      - name: Rsync mã nguồn lên server (template trước)
+        run: |
+          rsync -azr --delete \
+            --exclude .git --exclude .github --exclude vendor \
+            -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" \
+            ./ root@${{ secrets.PUBLIC_IP }}:/home/huongprZCBR/huong-project.tichhop.pro/template_laravel
+
+      # 4. SSH vào VPS để deploy từ template → public_html
+      - name: Deploy mã nguồn sang thư mục chạy chính
+        run: |
+          ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} '
+            # Backup source cũ
+            mkdir -p /home/huongprZCBR/huong-project.tichhop.pro/backup_laravel &&
+            rsync -azr /home/huongprZCBR/huong-project.tichhop.pro/public_html/ /home/huongprZCBR/huong-project.tichhop.pro/backup_laravel &&
+
+            # Cập nhật source mới
+            rsync -azr /home/huongprZCBR/huong-project.tichhop.pro/template_laravel/ /home/huongprZCBR/huong-project.tichhop.pro/public_html &&
+
+            # Di chuyển vào source
+            cd /home/huongprZCBR/huong-project.tichhop.pro/public_html &&
+
+            # Cài vendor + cache config/route
+            composer install --no-dev --optimize-autoloader &&
+            php artisan config:cache &&
+            php artisan route:cache &&
+
+            # Cấp quyền cho Laravel chạy ổn định
+            chown -R huongprZCBR:huongprZCBR . &&
+            chmod -R 775 storage &&
+            chmod -R 775 bootstrap/cache &&
+
+            # Restart nginx + php-fpm
+            pkill nginx && sleep 1 &&
+            systemctl restart php8.3-fpm &&
+            systemctl start nginx
+          '
