@@ -13,7 +13,14 @@ class LoginController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string|min:6',
+            'password' => [
+                'required',
+                'min:8',
+                'regex:/[a-z]/',      // chữ thường
+                'regex:/[A-Z]/',      // chữ hoa
+                'regex:/[0-9]/',      // số
+                'regex:/[@$!%*#?&]/'  // ký tự đặc biệt
+            ],
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -30,9 +37,23 @@ class LoginController extends Controller
             return response()->json(['message' => 'Email hoặc mật khẩu không đúng'], 401);
         }
 
-        return response()->json([
-            'message' => 'Đăng nhập thành công',
-            'user' => $user,
-        ]);
+        if ($user->role === 'admin') {
+            return response()->json([
+                'message' => 'Đăng nhập thành công với quyền quản trị',
+                'role' => 'admin',
+                'user' => $user,
+            ]);
+        } 
+        elseif ($user->role === 'user') {
+            return response()->json([
+                'message' => 'Đăng nhập thành công với quyền người dùng',
+                'role' => 'user',
+                'user' => $user,
+            ]);
+        } 
+        else {
+            return response()->json(['message' => 'Quyền truy cập không hợp lệ'], 403);
+        }
+
     }
 }

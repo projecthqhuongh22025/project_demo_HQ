@@ -165,7 +165,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-#resendEmailBtn {
+#resendBtn {
     background-color: #3498db;
     color: white;
     padding: 12px 24px;
@@ -176,7 +176,22 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-#resendEmailBtn:hover {
+#resendBtn:hover {
+    background-color: #2980b9;
+}
+
+#activateBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#activateBtn:hover {
     background-color: #2980b9;
 }
 
