@@ -20,3 +20,4 @@ Route::get('/dashboard', function () {
 Route::get('/verified-success', function () {
     return view('layouts.auth.verified-success');
 });
+

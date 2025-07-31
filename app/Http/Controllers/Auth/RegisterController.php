@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Events\UserRegistered;
 use Illuminate\Support\Facades\Log;
+use App\Events\UserProfileUpdated;
 
 class RegisterController extends Controller
 {
@@ -60,7 +61,7 @@ class RegisterController extends Controller
 
         $user->update([
             'activation_token' => $activationToken,
-            'activation_token_expires_at' => now()->addMinutes(5),
+            'activation_token_expires_at' => now()->addMinutes(1),
         ]);
 
         $activationUrl = route('user.activate', ['token' => $token]);
@@ -85,7 +86,7 @@ class RegisterController extends Controller
 
         $token = $user->id . Str::random(64);
         $activationToken = md5($token);
-        $expiresAt = now()->addMinutes(5);
+        $expiresAt = now()->addMinutes(1);
 
         $user->activation_token = $activationToken;
         $user->activation_token_expires_at = $expiresAt;
@@ -98,4 +99,6 @@ class RegisterController extends Controller
 
         return response()->json(['message' => 'Đã gửi lại email kích hoạt. Vui lòng kiểm tra hộp thư.']);
     }
+
+
 }

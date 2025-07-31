@@ -75,7 +75,7 @@
 
 
     <script>
-        let countdownTime = 300; // 5 phút
+        let countdownTime = 60; // 5 phút
         let interval;
         let emailToCheck = "";
 
@@ -141,7 +141,7 @@
                 success: function(res) {
                     setTimeout(() => {
                         document.getElementById('resendBtn').style.display = 'none';
-                        countdownTime = 300;
+                        countdownTime = 60;
                         document.getElementById('countdownBox').style.display = 'inline-block';
                         document.getElementById('resendText').textContent = '📩 Đã gửi lại email';
                         startCountdown();
