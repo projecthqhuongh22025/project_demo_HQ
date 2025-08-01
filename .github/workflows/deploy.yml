@@ -44,9 +44,6 @@ jobs:
             # Di chuyển vào source
             cd /home/huongpr3H9B/huong-project.tichhop.pro/public_html &&
 
-            # Xoá platform_check.php để tránh lỗi PHP version
-            rm -f vendor/composer/platform_check.php &&
-
             # Cache config và route
             php artisan config:cache &&
             php artisan route:cache &&
