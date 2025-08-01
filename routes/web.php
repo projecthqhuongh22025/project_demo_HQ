@@ -7,6 +7,10 @@ Route::get('/login', function () {
     return view('layouts.auth.login');
 });
 
+Route::get('/sign-up', function () {
+    return view('layouts.auth.signup');
+});
+
 Route::get('/activate/{token}', [ActivateAccountController::class, 'activate'])->name('user.activate');
 
 Route::get('/home', function () {
