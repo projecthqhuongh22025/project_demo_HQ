@@ -1,6 +1,5 @@
 name: Triển khai Laravel lên Server
 
-# Chạy khi có push vào nhánh master
 on:
   push:
     branches: [ "master" ]
@@ -14,7 +13,7 @@ jobs:
       - name: Lấy mã nguồn
         uses: actions/checkout@v4
 
-      # 2. Cấu hình SSH để rsync code
+      # 2. Cấu hình SSH
       - name: Cấu hình SSH
         run: |
           mkdir -p ~/.ssh
@@ -22,41 +21,42 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -t ed25519 -p ${{ secrets.SSH_PORT }} -H ${{ secrets.PUBLIC_IP }} >> ~/.ssh/known_hosts
 
-      # 3. Rsync mã nguồn Laravel lên VPS vào thư mục template
-      - name: Rsync mã nguồn lên server (template trước)
+      # 3. Rsync mã nguồn lên server (KHÔNG bao gồm vendor hoặc composer.lock)
+      - name: Rsync source code lên server (template)
         run: |
           rsync -azr --delete \
-            --exclude .git --exclude .github \
+            --exclude .git --exclude .github --exclude vendor --exclude composer.lock \
             -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" \
             ./ root@${{ secrets.PUBLIC_IP }}:/home/huongpr3H9B/huong-project.tichhop.pro/template_laravel
 
-      # 4. SSH vào VPS để deploy từ template → public_html
-      - name: Deploy mã nguồn sang thư mục chạy chính
+      # 4. SSH vào VPS và thực hiện deploy bằng PHP 8.3
+      - name: Deploy trên server với PHP 8.3
         run: |
           ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} '
+            set -e
+
             # Backup source cũ
             mkdir -p /home/huongpr3H9B/huong-project.tichhop.pro/backup_laravel &&
             rsync -azr /home/huongpr3H9B/huong-project.tichhop.pro/public_html/ /home/huongpr3H9B/huong-project.tichhop.pro/backup_laravel &&
 
-            # Cập nhật source mới
+            # Deploy từ template
             rsync -azr /home/huongpr3H9B/huong-project.tichhop.pro/template_laravel/ /home/huongpr3H9B/huong-project.tichhop.pro/public_html &&
 
-            # Di chuyển vào source
-            cd /home/huongpr3H9B/huong-project.tichhop.pro/public_html &&
+            cd /home/huongpr3H9B/huong-project.tichhop.pro/public_html
 
-            # Xoá platform_check.php để tránh lỗi PHP version
-            rm -f vendor/composer/platform_check.php &&
+            # Cài lại composer bằng PHP 8.3
+            php8.3 /usr/local/bin/composer install --no-dev --optimize-autoloader
 
-            # Cache config và route
-            php artisan config:cache &&
-            php artisan route:cache &&
+            # Laravel cache
+            php8.3 artisan config:cache
+            php8.3 artisan route:cache
 
-            # Cấp quyền cho Laravel chạy ổn định
-            chown -R huongprZCBR:huongprZCBR . &&
-            chmod -R 775 storage &&
-            chmod -R 775 bootstrap/cache &&
+            # Quyền
+            chown -R huongprZCBR:huongprZCBR .
+            chmod -R 775 storage
+            chmod -R 775 bootstrap/cache
 
-            # Restart nginx + php-fpm
-            pkill nginx && sleep 1 &&
-            systemctl start nginx
+            # Restart nginx và PHP-FPM 8.3
+            systemctl restart php8.3-fpm
+            systemctl restart nginx
           '
