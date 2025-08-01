@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmGroup.style.display = isLogin ? "none" : "block";
         fullNameGroup.style.display = isLogin ? "none" : "block";
         phoneNumberGroup.style.display = isLogin ? "none" : "block";
-        registerBtn.style.display = isLogin ? "none" : "inline-block";
-        loginBtn.style.display = isLogin ? "inline_block" : "none";
+        registerBtn.style.display = isLogin ? "none" : "block";
+        loginBtn.style.display = isLogin ? "block" : "none";
     });
 
     function login() {
@@ -53,6 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (xhr.status === 403) {
                     emailToCheck = $('#email').val();
                     document.getElementById('resendModalLogin').style.display = 'flex';
+                } if (xhr.status === 422) {
+                    const errors = xhr.responseJSON.errors;
+                    $.each(errors, function (key, messages) {
+                        $(`#${key}-error`).text(messages[0]);
+                    });
                 } else {
                     alert(xhr.responseJSON.message);
                 }
@@ -62,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).on('click', '.login-btn', function (event) {
         event.preventDefault();
+        $('.error').text('');
         login();
     });
 

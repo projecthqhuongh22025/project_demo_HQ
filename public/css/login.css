@@ -83,7 +83,7 @@ h2 {
     font-weight: bold;
 }
 
-.error-text {
+.error {
     color: red;
     font-size: 0.9em;
     margin-top: 3px;
@@ -195,11 +195,6 @@ h2 {
     background-color: #2980b9;
 }
 
-.message {
-    margin-top: 15px;
-    font-size: 15px;
-    color: green;
-}
 
 @keyframes fadeIn {
     from {

@@ -16,27 +16,27 @@
                 <div class="input-group" id="fullName" style="display: none;">
                     <label>Họ Tên</label>
                     <input id="name" type="text" required />
-                    <div class="error-text" id="nameError"></div>
+                    <div class="error" id="name-error"></div>
                 </div>
                 <div class="input-group" id="phoneNumber" style="display: none;">
                     <label>Số điện thoại</label>
                     <input id="phone" type="text" required />
-                    <div class="error-text" id="phoneError"></div>
+                    <div class="error" id="phone-error"></div>
                 </div>
                 <div class="input-group">
                     <label>Email</label>
                     <input id="email" type="email" required />
-                    <div class="error-text" id="emailError"></div>
+                    <div class="error" id="email-error"></div>
                 </div>
                 <div class="input-group">
                     <label>Mật khẩu</label>
                     <input id="password" type="password" required />
-                    <div class="error-text" id="passwordError"></div>
+                    <div class="error" id="password-error"></div>
                 </div>
                 <div class="input-group" id="confirm-password-group" style="display: none;">
                     <label>Xác nhận mật khẩu</label>
                     <input id="confirmPassword" type="password" />
-                    <div class="error-text" id="confirmPasswordError"></div>
+                    <div class="error" id="password_confirmation-error"></div>
                 </div>
                 <button id="loginBtn" type="button" class="login-btn btn">Đăng nhập</button>
                 <button id="registerBtn" type="button" class="register-btn btn" style="display: none;">Đăng ký</button>
