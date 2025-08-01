@@ -112,7 +112,7 @@
                     email: email
                 },
                 success: function(data) {
-                    if (data.activated) {
+                    if (data.message === 'Tài khoản đã được kích hoạt') {
                         clearInterval(interval);
                         alert("Tài khoản đã được kích hoạt. Đi đến trang đăng nhập!");
                         window.location.href = "/login";
