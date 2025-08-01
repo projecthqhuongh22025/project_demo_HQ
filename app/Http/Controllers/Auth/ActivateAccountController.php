@@ -33,4 +33,13 @@ class ActivateAccountController extends Controller
 
         return redirect('/verified-success')->with('success', 'Tài khoản của bạn đã được kích hoạt. Vui lòng đăng nhập!');
     }
+
+    public function checkActivation(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return response()->json(['message' => 'Email không tồn tại'], 404);
+        }
+        return response()->json(['activated' => $user->is_active]);
+    }
 }
