@@ -67,7 +67,6 @@ class RegisterController extends Controller
         $activationUrl = route('user.activate', ['token' => $token]);
 
         event(new UserRegistered($user, $activationUrl));
-        Log::info('Gọi hàm register');
 
         return response()->json(['message' => 'Vui lòng kiểm tra email để kích hoạt tài khoản.']);
     }
@@ -95,7 +94,6 @@ class RegisterController extends Controller
         $activationUrl = route('user.activate', ['token' => $token]);
 
         event(new UserRegistered($user, $activationUrl));
-        Log::info('Gọi hàm resendActivation');
 
         return response()->json(['message' => 'Đã gửi lại email kích hoạt. Vui lòng kiểm tra hộp thư.']);
     }
