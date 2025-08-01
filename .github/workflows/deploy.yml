@@ -55,4 +55,5 @@ jobs:
 
             # Restart nginx + php-fpm
             pkill nginx && sleep 1 &&
-             systemctl start nginx
+            systemctl start nginx
+          '
