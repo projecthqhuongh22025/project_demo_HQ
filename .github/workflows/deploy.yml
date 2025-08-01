@@ -26,7 +26,7 @@ jobs:
       - name: Rsync mã nguồn lên server (template trước)
         run: |
           rsync -azr --delete \
-            --exclude .git --exclude .github --exclude vendor \
+            --exclude .git --exclude .github \
             -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" \
             ./ root@${{ secrets.PUBLIC_IP }}:/home/huongpr3H9B/huong-project.tichhop.pro/template_laravel
 
@@ -44,7 +44,10 @@ jobs:
             # Di chuyển vào source
             cd /home/huongpr3H9B/huong-project.tichhop.pro/public_html &&
 
-            # Cài vendor + cache config/route
+            # Xoá platform_check.php để tránh lỗi PHP version
+            rm -f vendor/composer/platform_check.php &&
+
+            # Cache config và route
             php artisan config:cache &&
             php artisan route:cache &&
 
