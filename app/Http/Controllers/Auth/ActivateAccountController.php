@@ -40,6 +40,11 @@ class ActivateAccountController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Email không tồn tại'], 404);
         }
-        return response()->json(['activated' => $user->is_active]);
+        if ($user->is_active === 0) {
+            return response()->json(['message' => 'Tài khoản chưa được kích hoạt'], 403);
+        }
+        if ($user->is_active === 1) {
+            return response()->json(['message' => 'Tài khoản đã được kích hoạt'], 200);
+        }
     }
 }
