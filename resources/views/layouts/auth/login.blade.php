@@ -112,6 +112,8 @@
                     email: email
                 },
                 success: function(data) {
+                    console.log(data);
+                    console.log(data.user);
                     if (data.is_active === 1) {
                         clearInterval(interval);
                         alert("Tài khoản đã được kích hoạt. Đi đến trang đăng nhập!");
