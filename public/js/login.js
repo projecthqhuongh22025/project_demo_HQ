@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         $.ajax({
-            url: "https://huong-project.tichhop.pro/login",
+            url: "https://huong-project.tichhop.pro/api/login",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
