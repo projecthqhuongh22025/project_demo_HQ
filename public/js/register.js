@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         $.ajax({
-            url: "https://huong-project.tichhop.pro/api/register",
+            url: "/api/register",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),

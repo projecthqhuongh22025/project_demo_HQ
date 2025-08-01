@@ -132,7 +132,7 @@
 
         function resendEmail() {
             $.ajax({
-                url: 'https://huong-project.tichhop.pro/api/resend-activation',
+                url: '/api/resend-activation',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({

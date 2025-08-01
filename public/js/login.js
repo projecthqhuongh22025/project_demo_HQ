@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         $.ajax({
-            url: "https://huong-project.tichhop.pro/api/login",
+            url: "/api/login",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (response) {
                 if (response.role === 'admin') {
-                    window.location.href = '/dashboard';
+                    window.location.href = '/dashboard';                
                 } else if (response.role === 'user') {
                     window.location.href = '/home';
                 } else {
