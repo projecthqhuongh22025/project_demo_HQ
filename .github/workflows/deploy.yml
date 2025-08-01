@@ -52,7 +52,7 @@ jobs:
             php8.3 artisan route:cache
 
             # Quyền
-            chown -R huongprZCBR:huongprZCBR .
+            chown -R huongpr3H9B:huongpr3H9B .
             chmod -R 775 storage
             chmod -R 775 bootstrap/cache
 
