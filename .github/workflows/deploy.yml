@@ -28,24 +28,23 @@ jobs:
           rsync -azr --delete \
             --exclude .git --exclude .github --exclude vendor \
             -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" \
-            ./ root@${{ secrets.PUBLIC_IP }}:/home/huongprZCBR/huong-project.tichhop.pro/template_laravel
+            ./ root@${{ secrets.PUBLIC_IP }}:/home/huongpr3H9B/huong-project.tichhop.pro/template_laravel
 
       # 4. SSH vào VPS để deploy từ template → public_html
       - name: Deploy mã nguồn sang thư mục chạy chính
         run: |
           ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} '
             # Backup source cũ
-            mkdir -p /home/huongprZCBR/huong-project.tichhop.pro/backup_laravel &&
-            rsync -azr /home/huongprZCBR/huong-project.tichhop.pro/public_html/ /home/huongprZCBR/huong-project.tichhop.pro/backup_laravel &&
+            mkdir -p /home/huongpr3H9B/huong-project.tichhop.pro/backup_laravel &&
+            rsync -azr /home/huongpr3H9B/huong-project.tichhop.pro/public_html/ /home/huongpr3H9B/huong-project.tichhop.pro/backup_laravel &&
 
             # Cập nhật source mới
-            rsync -azr /home/huongprZCBR/huong-project.tichhop.pro/template_laravel/ /home/huongprZCBR/huong-project.tichhop.pro/public_html &&
+            rsync -azr /home/huongpr3H9B/huong-project.tichhop.pro/template_laravel/ /home/huongpr3H9B/huong-project.tichhop.pro/public_html &&
 
             # Di chuyển vào source
-            cd /home/huongprZCBR/huong-project.tichhop.pro/public_html &&
+            cd /home/huongpr3H9B/huong-project.tichhop.pro/public_html &&
 
             # Cài vendor + cache config/route
-            composer install --no-dev --optimize-autoloader &&
             php artisan config:cache &&
             php artisan route:cache &&
 
@@ -58,4 +57,3 @@ jobs:
             pkill nginx && sleep 1 &&
             systemctl restart php8.3-fpm &&
             systemctl start nginx
-          '
