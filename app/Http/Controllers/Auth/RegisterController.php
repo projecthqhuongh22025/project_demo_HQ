@@ -61,7 +61,7 @@ class RegisterController extends Controller
 
         $user->update([
             'activation_token' => $activationToken,
-            'activation_token_expires_at' => now()->addMinutes(1),
+            'activation_token_expires_at' => now()->addMinutes(5),
         ]);
 
         $activationUrl = route('user.activate', ['token' => $token]);
@@ -85,7 +85,7 @@ class RegisterController extends Controller
 
         $token = $user->id . Str::random(64);
         $activationToken = md5($token);
-        $expiresAt = now()->addMinutes(1);
+        $expiresAt = now()->addMinutes(5);
 
         $user->activation_token = $activationToken;
         $user->activation_token_expires_at = $expiresAt;

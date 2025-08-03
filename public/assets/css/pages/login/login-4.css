@@ -1,0 +1,264 @@
+.login.login-4 .login-container .login-content {
+  width: 450px; }
+  .login.login-4 .login-container .login-content .wizard-nav {
+    padding: 0; }
+    .login.login-4 .login-container .login-content .wizard-nav .wizard-steps {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step {
+        padding: 0.75rem 0;
+        -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+        transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+        margin-bottom: 1.5rem; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-wrapper {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-icon {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          background-color: #F3F6F9;
+          margin-right: 1rem; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-icon .wizard-check {
+            display: none;
+            font-size: 1.4rem; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-icon .wizard-number {
+            font-weight: 600;
+            color: #3F4254;
+            font-size: 1.35rem; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-label {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-title {
+            color: #181C32;
+            font-weight: 600;
+            font-size: 1.24rem; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-desc {
+            color: #B5B5C3;
+            font-size: 0.925rem; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="done"] .wizard-icon {
+          -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+          background-color: #C9F7F5; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="done"] .wizard-icon .wizard-check {
+            color: #1BC5BD;
+            display: inline-block; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="done"] .wizard-icon .wizard-number {
+            display: none; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="done"] .wizard-label .wizard-title {
+          color: #B5B5C3; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="done"] .wizard-label .wizard-desc {
+          color: #D1D3E0; }
+        .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] {
+          -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+          transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon {
+            -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+            transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+            transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+            transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+            background-color: #C9F7F5; }
+            .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon .wizard-check {
+              color: #1BC5BD;
+              display: none; }
+            .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-icon .wizard-number {
+              color: #1BC5BD; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-label .wizard-title {
+            color: #181C32; }
+          .login.login-4 .login-container .login-content .wizard-nav .wizard-steps .wizard-step[data-wizard-state="current"] .wizard-label .wizard-desc {
+            color: #B5B5C3; }
+  .login.login-4 .login-container .login-content.login-content-signup {
+    width: 700px; }
+
+.login.login-4 .login-aside {
+  background: linear-gradient(147.04deg, #CA7B70 0.74%, #5A2119 99.61%);
+  width: 700px; }
+  .login.login-4 .login-aside .login-conteiner {
+    height: 100%; }
+
+@media (min-width: 992px) {
+  .login.login-4 .login-aside .login-conteiner {
+    min-height: 610px !important;
+    background-size: 580px; } }
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .login.login-4 .login-aside .login-conteiner {
+    min-height: 420px !important;
+    background-size: 400px; } }
+
+@media (max-width: 991.98px) {
+  .login.login-4 .login-container .wizard-nav {
+    padding: 0;
+    -ms-flex-line-pack: center;
+    align-content: center; }
+    .login.login-4 .login-container .wizard-nav .wizard-steps .wizard-step {
+      margin-bottom: .5rem; }
+  .login.login-4 .login-aside {
+    width: 100% !important; }
+    .login.login-4 .login-aside .login-conteiner {
+      min-height: 210px !important;
+      background-size: 200px; } }
+
+@media (max-width: 575.98px) {
+  .login.login-4 .login-container {
+    width: 100%; }
+    .login.login-4 .login-container .wizard-nav .wizard-steps {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .login.login-4 .login-container .wizard-nav .wizard-steps .wizard-step {
+        width: 100%; }
+        .login.login-4 .login-container .wizard-nav .wizard-steps .wizard-step .wizard-wrapper .svg-icon {
+          display: none; }
+    .login.login-4 .login-container .login-content {
+      width: 100%; }
+      .login.login-4 .login-container .login-content.login-content-signup {
+        width: 100%; }
+  .login.login-4 .login-aside {
+    width: 100% !important; } }
+
+@media (max-width: 1800px) {
+  .login.login-4 .login-aside {
+    width: 600px; } }
+
+    .verify_modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.verify-content {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.verify-content h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.verify-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.verify-content span#userEmail {
+    color: #2c7be5;
+    font-weight: 600;
+}
+
+.verify-content span#countdown {
+    color: #e63946;
+    font-weight: 600;
+}
+
+.verify-content .icon {
+    font-size: 40px;
+    color: #38b000;
+    margin-bottom: 20px;
+}
+
+.countdown-box {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #f0f4ff;
+    border: 2px solid #2c7be5;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #2c7be5;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.verify-content h2 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.verify-content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#resendBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#resendBtn:hover {
+    background-color: #2980b9;
+}
+
+#activateBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#activateBtn:hover {
+    background-color: #2980b9;
+}
