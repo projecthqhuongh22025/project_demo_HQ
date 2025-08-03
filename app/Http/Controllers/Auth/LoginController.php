@@ -37,7 +37,7 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (!$user) {
-            return response()->json(['message' => 'Email hoặc mật khẩu không đúng'], 401);
+            return response()->json(['message' => 'Tài khoản chưa tồn tại'], 401);
         }
 
         if (!$user->is_active) {
@@ -63,7 +63,7 @@ class LoginController extends Controller
             ]);
         } 
         else {
-            return response()->json(['message' => 'Quyền truy cập không hợp lệ'], 403);
+            return response()->json(['message' => 'Quyền truy cập không hợp lệ']);
         }
 
     }

@@ -111,7 +111,7 @@
 									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Đăng ký tài
 										khoản</h3>
 									<div class="text-muted font-weight-bold font-size-h4">Bạn đã có tài khoản ?
-										<a href="custom/pages/login/login-4/signin.html"
+										<a href="/login"
 											class="text-primary font-weight-bolder">Đăng nhập</a>
 									</div>
 								</div>
@@ -178,22 +178,16 @@
 										<p>Chúng tôi đã gửi email xác minh đến <span style="color: #187DE4;" id="userEmail"></span></p>
 										<p>Vui lòng kiểm tra email để kích hoạt tài khoản.</p>
 										<div class="countdown-box" id="countdownBox">
-											⏳ Gửi lại sau: <span id="countdown">1:00</span>
+											⏳ Gửi lại sau: <span id="countdown">5:00</span>
 										</div>
 										<button type="button" id="resendBtn" style="display: none;">Gửi lại</button>
 									</div>
 								</div>
-								<!-- <div id="resendModalLogin" class="verify_modal" style="display: none;">
-									<div class="verify_content">
-										<h2>⏰ Tài khoản chưa kích hoạt</h2>
-										<p>Vui lòng kích hoạt tài khoản.</p>
-										<button id="activateBtn">Kích hoạt</button>
-									</div>
-								</div> -->
+								
 							</div>
 							<!--end: Wizard Step 2-->
 							<!--begin: Wizard Actions-->
-							<div style="display: flex; justify-content: center;padding-top: 22.75px;">
+							<div style="display: flex; padding-top: 22.75px;">
 								<button id="register-btn" type="button"
 									style="color: #FFFFFF;
 										background-color: #187DE4;

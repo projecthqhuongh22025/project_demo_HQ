@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    let countdownTime = 60; // 5 phút
+    let countdownTime = 300; // 5 phút
     let interval;
     let emailToCheck = "";
 
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function resendEmail() {
+    window.resendEmail = function () {
         $.ajax({
             url: '/api/resend-activation',
             method: 'POST',
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             success: function (res) {
                 setTimeout(() => {
                     document.getElementById('resendBtn').style.display = 'none';
-                    countdownTime = 60;
+                    countdownTime = 300;
                     document.getElementById('countdownBox').style.display = 'inline-block';
                     document.getElementById('resendText').textContent = '📩 Đã gửi lại email';
                     startCountdown();
