@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="../../../../">
 		<meta charset="utf-8" />
-		<title>Quên mật khẩu</title>
+		<title>Xác thực OTP</title>
 		<meta name="description" content="Forgot password page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -44,17 +44,16 @@
 							<form class="form" id="kt_login_forgot_form" action="">
 								<!--begin::Title-->
 								<div class="pb-5 pb-lg-15">
-									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Bạn quên mật khẩu ?</h3>
-									<p class="text-muted font-weight-bold font-size-h4">Vui lòng điền email của bạn !</p>
+									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Xác thực đăng nhập</h3>
 								</div>
 								<!--end::Title-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<label class="font-size-h6 font-weight-bolder text-dark">Email</label> <label
+									<label class="font-size-h6 font-weight-bolder text-dark">Nhập mã xác thực OTP</label> <label
 										style="color: red;">*</label>
-									<input id="email" type="email"
-										class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Email" value="" />
-									<div class="error" id="email-error"></div>
+									<input id="otp" type="text"
+										class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Mã OTP" value="" />
+									<div class="error" id="otp-error"></div>
 								</div>
 								
 								<!--end::Form group-->
@@ -74,18 +73,7 @@
 								<!--end::Form group-->
 							</form>
 						</div>
-						<div id="verify-page_forgot" class="verify_modal" style="display:none;">
-							<div class="modal-content">
-								<h2 id="resendText">📩 Xác minh email</h2>
-								<p>Chúng tôi đã gửi email xác minh đến <span style="color: #187DE4;" id="userEmail"></span></p>
-								<p>Vui lòng kiểm tra email để thay đổi mật khẩu.</p>
-								<div class="countdown-box" id="countdownBox">
-									⏳ Gửi lại sau: <span id="countdown">5:00</span>
-								</div>
-								<button id="resendBtn" style="display: none;">Gửi lại</button>
-							</div>
-						</div>
-
+						
 						<style>
 							.error {
 								color: red;

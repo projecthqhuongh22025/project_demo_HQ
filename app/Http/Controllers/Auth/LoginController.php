@@ -49,16 +49,20 @@ class LoginController extends Controller
         }
 
         if ($user->role === 'admin') {
+            $token = $user->createToken('api-token')->plainTextToken;
             return response()->json([
                 'message' => 'Đăng nhập thành công với quyền quản trị',
                 'role' => 'admin',
+                'token' => $token,
                 'user' => $user,
             ]);
         } 
         elseif ($user->role === 'user') {
+            $token = $user->createToken('api-token')->plainTextToken;
             return response()->json([
                 'message' => 'Đăng nhập thành công với quyền người dùng',
                 'role' => 'user',
+                'token' => $token,
                 'user' => $user,
             ]);
         } 
