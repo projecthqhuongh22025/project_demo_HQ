@@ -4,12 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ActivateAccountController;
 use App\Http\Controllers\Auth\ForgotController;
 
-Route::get('/', function () {
-    return view('layouts.auth.login');
-});
 
 Route::get('/login', function () {
-    return view('layouts.auth.login1');
+    return view('layouts.auth.login');
 });
 
 Route::get('/sign-up', function () {
