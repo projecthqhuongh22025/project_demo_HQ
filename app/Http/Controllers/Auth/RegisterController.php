@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'phone' => $request->phone,
             'role' => 'user',
             'is_active' => false,
+            'is_locked' => false,
         ]);
 
         $token = $user->id . Str::random(64);

@@ -29,15 +29,30 @@ Route::get('/activate/{token}', [ActivateAccountController::class, 'activate'])-
 
 Route::get('/show-reset-password/{token}', [ForgotController::class, 'showresetPassword'])->name('user.showResetPassword');
 
-Route::get('/home', function () {
-    return view('layouts.frontend.home');
-});
 
-Route::get('/dashboard', function () {
-    return view('layouts.admin.dashboard');
-});
 
 Route::get('/verified-success', function () {
     return view('layouts.auth.verified-success');
 });
+
+//routes frontend
+Route::get('/', function () {
+    return view('layouts.frontend.home');
+});
+
+//routes admin
+Route::get('/dashboard', function () {
+    return view('layouts.admin.dashboard');
+});
+
+Route::get('/account', function () {
+    return view('layouts.admin.account');
+});
+
+Route::get('/show-log', function () {
+    return view('layouts.admin.log');
+});
+
+
+
 
