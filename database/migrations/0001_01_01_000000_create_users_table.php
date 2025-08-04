@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('role', ['user', 'admin'])->default('user');
             $table->boolean('is_active')->default(false);
+            $table->boolean('is_locked')->default(false);
             $table->string('activation_token')->nullable();
             $table->timestamp('activation_token_expires_at')->nullable();
             $table->rememberToken();

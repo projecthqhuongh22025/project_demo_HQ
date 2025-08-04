@@ -14,16 +14,16 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 	<!--end::Fonts-->
 	<!--begin::Page Custom Styles(used by this page)-->
-	<link href="assets/css/pages/login/login-4.css" rel="stylesheet" type="text/css" />
+	<link href="/auth/assets/css/pages/login/login-4.css" rel="stylesheet" type="text/css" />
 	<!--end::Page Custom Styles-->
 	<!--begin::Global Theme Styles(used by all pages)-->
-	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/auth/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/auth/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/auth/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 	<!--end::Global Theme Styles-->
 	<!--begin::Layout Themes(used by all pages)-->
 	<!--end::Layout Themes-->
-	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+	<link rel="shortcut icon" href="/auth/assets/media/logos/favicon.ico" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -42,7 +42,7 @@
 					<div class="d-flex flex-column-auto flex-column px-10">
 						<!--begin::Aside header-->
 						<a href="#" class="login-logo pb-lg-4 pb-10">
-							<img src="assets/media/logos/logo-4.png" class="max-h-70px" alt="" />
+							<img src="/auth/assets/media/logos/logo-4.png" class="max-h-70px" alt="" />
 						</a>
 						<!--end::Aside header-->
 						<!--begin: Wizard Nav-->
@@ -212,7 +212,7 @@
 			<!--begin::Aside-->
 			<div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right">
 				<div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom"
-					style="background-image: url(assets/media/svg/illustrations/login-visual-4.svg);">
+					style="background-image: url(/auth/assets/media/svg/illustrations/login-visual-4.svg);">
 					<!--begin::Aside title-->
 					<h3
 						class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">
@@ -294,12 +294,12 @@
 	</script>
 	<!--end::Global Config-->
 	<!--begin::Global Theme Bundle(used by all pages)-->
-	<script src="assets/plugins/global/plugins.bundle.js"></script>
-	<script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-	<script src="assets/js/scripts.bundle.js"></script>
+	<script src="/auth/assets/plugins/global/plugins.bundle.js"></script>
+	<script src="/auth/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+	<script src="/auth/assets/js/scripts.bundle.js"></script>
 	<!--end::Global Theme Bundle-->
 	<!--begin::Page Scripts(used by this page)-->
-	<script src="assets/js/pages/custom/login/login-4.js"></script>
+	<script src="/auth/assets/js/pages/custom/login/login-4.js"></script>
 	<!--end::Page Scripts-->
 </body>
 <!--end::Body-->
