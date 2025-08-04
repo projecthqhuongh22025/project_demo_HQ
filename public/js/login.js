@@ -36,6 +36,7 @@ function login() {
     });
 }
 
+
 $(document).on('click', '#login-btn', function (event) {
     event.preventDefault();
     $('.error').text('');

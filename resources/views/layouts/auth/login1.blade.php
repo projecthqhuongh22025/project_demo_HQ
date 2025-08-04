@@ -88,7 +88,6 @@
 										</button>
 									</div>
 								</div>
-
 								<style>
 									.error {
 										color: red;
@@ -96,7 +95,6 @@
 										margin-top: 3px;
 									}
 								</style>
-
 							</div>
 							<div id="resendModalLogin" class="verify_modal" style="display: none;">
 								<div class="verify_content">
@@ -106,10 +104,10 @@
 								</div>
 							</div>
 
-							<div id="activationModal" class="modal" style="display:none;">
+							<div id="activationModal" class="verify_modal" style="display:none;">
 								<div class="modal-content">
 									<h2 id="resendText">📩 Xác minh email</h2>
-									<p>Chúng tôi đã gửi email xác minh đến <<span style="color: #187DE4;" id="userEmail"></span></p>
+									<p>Chúng tôi đã gửi email xác minh đến <span style="color: #187DE4;" id="userEmail"></span></p>
 									<p>Vui lòng kiểm tra email để kích hoạt tài khoản.</p>
 									<div class="countdown-box" id="countdownBox">
 										⏳ Gửi lại sau: <span id="countdown">5:00</span>

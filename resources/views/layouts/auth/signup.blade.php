@@ -138,7 +138,7 @@
 								<div class="form-group">
 									<label class="font-size-h6 font-weight-bolder text-dark">Email</label> <label
 										style="color: red;">*</label>
-									<input id="email" type="text"
+									<input id="email" type="email"
 										class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Email" value="" />
 									<div class="error" id="email-error"></div>
 								</div>

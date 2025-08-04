@@ -40,7 +40,7 @@
 						</a>
 						<!--end::Logo-->
 						<!--begin::Signin-->
-						<div class="login-form">
+						<div id="content-forgot" class="login-form">
 							<form class="form" id="kt_login_forgot_form" action="">
 								<!--begin::Title-->
 								<div class="pb-5 pb-lg-15">
@@ -50,8 +50,13 @@
 								<!--end::Title-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" />
+									<label class="font-size-h6 font-weight-bolder text-dark">Email</label> <label
+										style="color: red;">*</label>
+									<input id="email" type="email"
+										class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Email" value="" />
+									<div class="error" id="email-error"></div>
 								</div>
+								
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div style="display: flex; padding-top: 22.75px;">
@@ -69,6 +74,25 @@
 								<!--end::Form group-->
 							</form>
 						</div>
+						<div id="verify-page_forgot" class="verify_modal" style="display:none;">
+							<div class="modal-content">
+								<h2 id="resendText">📩 Xác minh email</h2>
+								<p>Chúng tôi đã gửi email xác minh đến <span style="color: #187DE4;" id="userEmail"></span></p>
+								<p>Vui lòng kiểm tra email để thay đổi mật khẩu.</p>
+								<div class="countdown-box" id="countdownBox">
+									⏳ Gửi lại sau: <span id="countdown">5:00</span>
+								</div>
+								<button id="resendBtn" style="display: none;">Gửi lại</button>
+							</div>
+						</div>
+
+						<style>
+							.error {
+								color: red;
+								font-size: 0.9em;
+								margin-top: 3px;
+							}
+						</style>
 						<!--end::Signin-->
 					</div>
 					<!--end::Wrapper-->
@@ -101,6 +125,8 @@
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="assets/js/pages/custom/login/login-4.js"></script>
 		<!--end::Page Scripts-->
+		<script src="/js/register.js"></script>
+		<script src="/js/resetpassword.js"></script>
 	</body>
 	<!--end::Body-->
 </html>
