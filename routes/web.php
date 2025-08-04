@@ -26,7 +26,7 @@ Route::get('/reset-password', function () {
 
 Route::get('/activate/{token}', [ActivateAccountController::class, 'activate'])->name('user.activate');
 
-Route::get('/reset-password/{token}', [ForgotController::class, 'showresetPassword'])->name('user.showResetPassword');
+Route::get('/show-reset-password/{token}', [ForgotController::class, 'showresetPassword'])->name('user.showResetPassword');
 
 Route::get('/home', function () {
     return view('layouts.frontend.home');

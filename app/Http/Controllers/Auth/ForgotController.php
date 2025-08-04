@@ -66,15 +66,21 @@ class ForgotController extends Controller
             ->first();
 
         if (!$user) {
-            return redirect('/login')->with('error', 'Liên kết đã hết hạn.');
+            return redirect('/login')->with('error', 'Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn.');
         }
 
-        return redirect('/reset-password')->with('success', 'Tài khoản của bạn đã được kích hoạt. Vui lòng đăng nhập!');
+        return redirect('/reset-password')->with([
+            'token' => $token,
+            'email' => $user->email,
+            'message' => 'Vui lòng nhập mật khẩu mới của bạn.'
+        ]);
     }
 
     public function resetPassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+            'token' => 'required|string',
             'password' => [
                 'required',
                 'confirmed', // cần có password_confirmation
@@ -85,6 +91,10 @@ class ForgotController extends Controller
                 'regex:/[@$!%*#?&]/'  // ký tự đặc biệt
             ],
         ], [
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email không hợp lệ',
+            'email.exists' => 'Email không tồn tại trong hệ thống',
+            'token.string' => 'Mã xác thực không hợp lệ',
             'password.required' => 'Vui lòng nhập mật khẩu',
             'password.min' => 'Mật khẩu phải ít nhất 8 ký tự',
             'password.regex' => 'Mật khẩu phải chứa ít nhất một chữ thường, một chữ hoa, một số và một ký tự đặc biệt',
