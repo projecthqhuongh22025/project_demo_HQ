@@ -21,6 +21,10 @@ Route::get('/reset-password', function () {
     return view('layouts.auth.resetpasswordform');
 });
 
+Route::get('/verify-otp', function () {
+    return view('layouts.auth.verifyOTP');
+});
+
 Route::get('/activate/{token}', [ActivateAccountController::class, 'activate'])->name('user.activate');
 
 Route::get('/show-reset-password/{token}', [ForgotController::class, 'showresetPassword'])->name('user.showResetPassword');

@@ -5,7 +5,7 @@
 <head>
 	<base href="../../../../">
 	<meta charset="utf-8" />
-	<title>Sign In | Keenthemes</title>
+	<title>Đăng nhập</title>
 	<meta name="description" content="Singin page example" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<link rel="canonical" href="https://keenthemes.com/metronic" />

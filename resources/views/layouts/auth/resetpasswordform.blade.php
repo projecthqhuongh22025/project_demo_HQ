@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="../../../../">
 		<meta charset="utf-8" />
-		<title>Forgot Password | Keenthemes</title>
+		<title>Đặt lại mật khẩu</title>
 		<meta name="description" content="Forgot password page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
