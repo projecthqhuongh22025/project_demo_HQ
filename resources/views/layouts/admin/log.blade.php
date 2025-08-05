@@ -17,11 +17,11 @@
                 <thead>
                     <tr class="text-uppercase">
                         <th class="pl-0">id</th>
-                        <th>Tên</th>
-                        <th>Email</th>
+                        <th>Tên admin</th>
                         <th>Số điện thoại</th>
-                        <th>Vai trò</th>
-                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                        <th>Tương tác với</th>
+                        <th>Data</th>
                         <th>Khóa/Mở khóa</th>
                     </tr>
                 </thead>
