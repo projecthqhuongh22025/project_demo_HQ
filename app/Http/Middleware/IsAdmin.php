@@ -16,10 +16,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || Auth::user()->role !== 'admin') {
-            return response()->json(['message' => 'Bạn không có quyền truy cập'], 403);
+        if (Auth::check() || Auth::user()->role !== 'admin') {
+            redirect()->route('dashboard');
         }
-
+        redirect()->route('login');
         return $next($request);
     }
 }
