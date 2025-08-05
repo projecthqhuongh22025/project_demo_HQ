@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 //routes admin quản trị
 Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::get('/get-user', [UserController::class, 'getUser']);
     Route::post('/add-user', [UserController::class, 'addUser']);
     Route::put('/update-user/{id}', [UserController::class, 'updateUser']);
     Route::put('/lock-user/{id}', [UserController::class, 'LockAccount']);

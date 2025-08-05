@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    //lấy danh sách người dùng đã kích hoạt
+    public function getUser(){
+        $user = User::all();
+        return response()->json($user);
+    }
     //thêm người dùng(role = admin)
     public function addUser(Request $request)
     {

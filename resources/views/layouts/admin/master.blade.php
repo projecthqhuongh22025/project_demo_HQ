@@ -14,16 +14,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="/frontend/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors Styles-->
     <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="/frontend/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="/frontend/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="/frontend/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/admin/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles-->
     <!--begin::Layout Themes(used by all pages)-->
     <!--end::Layout Themes-->
-    <link rel="shortcut icon" href="/frontend/assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="/admin/assets/media/logos/favicon.ico" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -35,7 +35,7 @@
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
         <a href="index.html">
-            <img alt="Logo" class="w-45px" src="/frontend/assets/media/logos/logo-letter-13.png" />
+            <img alt="Logo" class="w-45px" src="/admin/assets/media/logos/logo-letter-13.png" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
@@ -53,7 +53,7 @@
             <!--begin::Topbar Mobile Toggle-->
             <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
                 <span class="svg-icon svg-icon-xl">
-                    <!--begin::Svg Icon | path:/frontend/assets/media/svg/icons/General/User.svg-->
+                    <!--begin::Svg Icon | path:/admin/assets/media/svg/icons/General/User.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                         height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -83,7 +83,7 @@
                 <div class="brand flex-column-auto" id="kt_brand">
                     <!--begin::Logo-->
                     <a href="index.html" class="brand-logo">
-                        <img alt="Logo" class="w-65px" src="/frontend/assets/media/logos/logo-letter-13.png" />
+                        <img alt="Logo" class="w-65px" src="/admin/assets/media/logos/logo-letter-13.png" />
                     </a>
                     <!--end::Logo-->
                 </div>
@@ -275,18 +275,20 @@
     </script>
     <!--end::Global Config-->
     <!--begin::Global Theme Bundle(used by all pages)-->
-    <script src="/frontend/assets/plugins/global/plugins.bundle.js"></script>
-    <script src="/frontend/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-    <script src="/frontend/assets/js/scripts.bundle.js"></script>
+    <script src="/admin/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/admin/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="/admin/assets/js/scripts.bundle.js"></script>
     <!--end::Global Theme Bundle-->
     <!--begin::Page Vendors(used by this page)-->
-    <script src="/frontend/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="/admin/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
     <!--end::Page Vendors-->
     <!--begin::Page Scripts(used by this page)-->
-    <script src="/frontend/assets/js/pages/widgets.js"></script>
+    <script src="/admin/assets/js/pages/widgets.js"></script>
     <!--end::Page Scripts-->
 
-    <script src="/frontend/assets/js/home.js"></script>
+    <script src="/admin/assets/js/home.js"></script>
+    <script src="/admin/assets/js/pages/account.js"></script>
+    <script src="/admin/assets/js/pages/showlog.js"></script>
 </body>
 <!--end::Body-->
 

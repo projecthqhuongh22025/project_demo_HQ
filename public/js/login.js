@@ -4,17 +4,19 @@ function login() {
         password: $('#password').val(),
     };
 
-
     $.ajax({
         url: "/api/login",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
         success: function (response) {
+            console.log(response.role);
             if (response.role === 'admin') {
                 window.location.href = '/dashboard';
+                sessionStorage.setItem('token', response.token);
             } else if (response.role === 'user') {
-                window.location.href = '/home';
+                window.location.href = '/';
+                sessionStorage.setItem('token', response.token);
             } else {
                 alert('Bạn không có quyền truy cập vào hệ thống này.');
             }

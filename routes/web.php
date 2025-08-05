@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\ForgotController;
 
 Route::get('/login', function () {
     return view('layouts.auth.login');
-});
+})->name('login');
 
 Route::get('/sign-up', function () {
     return view('layouts.auth.signup');
@@ -41,18 +41,17 @@ Route::get('/', function () {
 });
 
 //routes admin
-Route::get('/dashboard', function () {
-    return view('layouts.admin.dashboard');
-});
-
-Route::get('/account', function () {
-    return view('layouts.admin.account');
-});
-
-Route::get('/show-log', function () {
-    return view('layouts.admin.log');
-});
-
+    Route::get('/dashboard', function () {
+        return view('layouts.admin.dashboard');
+    })->name('dashboard');
+    
+    Route::get('/account', function () {
+        return view('layouts.admin.account');
+    });
+    
+    Route::get('/show-log', function () {
+        return view('layouts.admin.log');
+    });
 
 
 
