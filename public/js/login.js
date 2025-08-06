@@ -10,13 +10,11 @@ function login() {
         contentType: 'application/json',
         data: JSON.stringify(data),
         success: function (response) {
-            console.log(response.role);
+            sessionStorage.setItem('token', response.token);
             if (response.role === 'admin') {
-                window.location.href = '/dashboard';
-                sessionStorage.setItem('token', response.token);
+                window.location.href = '/showqr';
             } else if (response.role === 'user') {
-                window.location.href = '/';
-                sessionStorage.setItem('token', response.token);
+                window.location.href = '/showqr';
             } else {
                 alert('Bạn không có quyền truy cập vào hệ thống này.');
             }
@@ -33,11 +31,15 @@ function login() {
                     $(`#${key}-error`).text(messages[0]);
                 });
             } else {
+                alert(xhr.responseJSON.message);
             }
         }
     });
 }
 
+function showQRcode(){
+
+}
 
 $(document).on('click', '#login-btn', function (event) {
     event.preventDefault();

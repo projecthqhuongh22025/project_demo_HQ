@@ -19,6 +19,12 @@ class UserController extends Controller
         $user = User::all();
         return response()->json($user);
     }
+
+    //lấy người dùng thoe id
+    public function getUserById($id) {
+        $user = User::findOrFail($id);
+        return response()->json($user);
+    }
     //thêm người dùng(role = admin)
     public function addUser(Request $request)
     {
@@ -63,7 +69,7 @@ class UserController extends Controller
 
         AdminLog::create([
             'admin_id'    => Auth::id(),
-            'action'      => 'Create_user',
+            'action'      => 'Create User',
             'target_type' => 'User',
             'target_id'   => $user->id,
             'data'        => $user,
@@ -79,11 +85,15 @@ class UserController extends Controller
     //chỉnh sửa thông tin
     public function updateUser(Request $request, $id){
         $validator = Validator::make($request->all(), [
+            'email' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'role' => 'required|string|in:user,admin',
             'phone' => 'required|string',
         ], [
+            'email.required' => 'Vui lòng nhập email',
             'email.email' => 'Email không hợp lệ',
+            'name.required' => 'Vui lòng nhập tên',
+            'phone.required' => 'Vui lòng nhập số điện thoại',
         ]);
 
         if ($validator->fails()) {
@@ -92,6 +102,7 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
         $user -> update([
+            'email' => $request->email,
             'name' => $request->name,
             'phone' => $request->phone,
             'role' => $request->role,
@@ -99,7 +110,7 @@ class UserController extends Controller
 
         AdminLog::create([
             'admin_id'    => Auth::id(),
-            'action'      => 'Update_user',
+            'action'      => 'Update User',
             'target_type' => 'User',
             'target_id'   => $user->id,
             'data'        => $user,
@@ -126,7 +137,7 @@ class UserController extends Controller
 
         AdminLog::create([
             'admin_id'    => Auth::id(),
-            'action'      => 'Lock_user',
+            'action'      => 'Lock/Unlock User',
             'target_type' => 'User',
             'target_id'   => $user->id,
             'data'        => $user,
@@ -144,7 +155,7 @@ class UserController extends Controller
         $user->delete();
         AdminLog::create([
             'admin_id'    => Auth::id(),
-            'action'      => 'Delete_user',
+            'action'      => 'Delete User',
             'target_type' => 'User',
             'target_id'   => $user->id,
             'data'        => $user,

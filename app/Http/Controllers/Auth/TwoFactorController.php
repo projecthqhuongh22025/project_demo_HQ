@@ -32,17 +32,21 @@ class TwoFactorController extends Controller
         if (!$user->google2fa_secret) {
             $user->google2fa_secret = $this->google2fa->generateSecretKey();
             $user->save();
+
+            return response()->json([
+                'require_qr' => true,
+                'secret' => $user->google2fa_secret,
+                'qr_url' => $this->google2fa->getQRCodeUrl(
+                    config('app.name'),
+                    $user->email,
+                    $user->google2fa_secret
+                ),
+            ]);
         }
 
-        $qrCodeUrl = $this->google2fa->getQRCodeUrl(
-            config('app.name'),
-            $user->email,
-            $user->google2fa_secret
-        );
-
         return response()->json([
-            'qr' => $qrCodeUrl,
-            'secret' => $user->google2fa_secret,
+            'require_qr' => false,
+            'message' => 'Vui lòng nhập mã OTP để tiếp tục',
         ]);
     }
 
@@ -70,6 +74,7 @@ class TwoFactorController extends Controller
 
         return response()->json([
             'message' => 'Xác thực 2FA thành công',
+            'role' => $user -> role
         ]);
     }   
 }
