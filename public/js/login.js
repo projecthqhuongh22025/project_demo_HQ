@@ -21,6 +21,7 @@ function login() {
 
         },
         error: function (xhr, status, error) {
+            const res = xhr.responseJSON;
             if (xhr.status === 403) {
                 emailToCheck = $('#email').val();
                 document.getElementById('content-login_form').style.display = 'none';
@@ -30,8 +31,21 @@ function login() {
                 $.each(errors, function (key, messages) {
                     $(`#${key}-error`).text(messages[0]);
                 });
-            } else {
-                alert(xhr.responseJSON.message);
+            }
+            if (xhr.status === 401) {
+                alert(res.message);
+                return;
+            }
+            if (xhr.status === 423) {
+                alert(res.message);
+            }
+
+            //Quá nhiều lần đăng nhập sai (429)
+            if (xhr.status === 429) {
+                const res = xhr.responseJSON;
+                alert(res.message);
+            }
+            else { 
             }
         }
     });
