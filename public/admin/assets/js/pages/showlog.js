@@ -9,8 +9,8 @@ function showLog(){
         success: function (data) {
             const contentlogs = $('#content-table-log');
             contentlogs.empty();
-            console.log(data);
-            data.forEach(log=> {
+            console.log(data.data);
+            data.data.forEach(function (log) {
                 const row = `
                     <tr>
                         <td class="pl-0">
@@ -26,7 +26,7 @@ function showLog(){
                             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">${log.data.id}</span>
                         </td>
                         <td>
-                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">${log.data.name}</span>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">${log.data.email}</span>
                         </td>
                         <td>
                             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">${log.action}</span>

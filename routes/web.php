@@ -15,7 +15,7 @@ Route::get('/sign-up', function () {
 
 Route::get('/forgot-password', function () {
     return view('layouts.auth.forgotPassword');
-});
+})->name('password.request');
 
 Route::get('/reset-password', function () {
     return view('layouts.auth.resetpasswordform');

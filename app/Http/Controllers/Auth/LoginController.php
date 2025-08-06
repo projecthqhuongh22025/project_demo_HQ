@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class LoginController extends Controller
 {
@@ -33,6 +37,7 @@ class LoginController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
+        $this->checkTooManyAttempts($request);
 
         $user = User::where('email', $request->email)->first();
 
@@ -43,12 +48,22 @@ class LoginController extends Controller
         if (!$user->is_active) {
             return response()->json(['message' => 'Tài khoản chưa được kích hoạt'], 403);
         }
-
+        
         if (!Hash::check($request->password, $user->password)) {
-            return response()->json(['message' => 'Email hoặc mật khẩu không đúng'], 401);
+            RateLimiter::hit($this->throttleKey($request), 60); // khóa 60 giây nếu vượt giới hạn
+            throw ValidationException::withMessages([
+                'email' => ['Thông tin đăng nhập không chính xác.'],
+            ]);
+        }
+
+        if ($user->is_locked) {
+            return response()->json([
+                'message' => 'Tài khoản đã bị khóa. Vui lòng liên hệ quản trị viên.'
+            ], 423);
         }
 
         if ($user->role === 'admin') {
+            RateLimiter::clear($this->throttleKey($request));
             $token = $user->createToken('api-token')->plainTextToken;
             session(['token' => $token]);
             return response()->json([
@@ -59,6 +74,7 @@ class LoginController extends Controller
             ]);
         } 
         elseif ($user->role === 'user') {
+            RateLimiter::clear($this->throttleKey($request));
             $token = $user->createToken('api-token')->plainTextToken;
             session(['token' => $token]);
             return response()->json([
@@ -72,5 +88,23 @@ class LoginController extends Controller
             return response()->json(['message' => 'Quyền truy cập không hợp lệ']);
         }
 
+    }
+
+    protected function checkTooManyAttempts(Request $request)
+    {
+        $key = $this->throttleKey($request);
+        $maxAttempts = 6;
+
+        if (RateLimiter::tooManyAttempts($key, $maxAttempts - 1)) {
+            $seconds = RateLimiter::availableIn($key);
+            throw new HttpResponseException(response()->json([
+                'message' => "Tài khoản bị khóa tạm thời. Vui lòng thử lại sau {$seconds} giây.",
+            ], 429));
+        }
+    }
+
+    protected function throttleKey(Request $request)
+    {
+        return Str::lower($request->input('email')).'|'.$request->ip();
     }
 }
