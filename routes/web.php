@@ -37,10 +37,27 @@ Route::get('/verified-success', function () {
 
 //routes frontend
 Route::get('/', function () {
-    return view('layouts.frontend.home');
+    return view('layouts.frontend.master');
+});
+
+Route::get('/home', function () {
+    return view('layouts.frontend.master');
+});
+
+Route::get('/update-password', function () {
+    return view('layouts.frontend.page.updatepassword');
+});
+
+Route::get('/info', function () {
+    return view('layouts.frontend.page.showinfo');
+});
+
+Route::get('/showqr', function () {
+    return view('layouts.frontend.page.showqr');
 });
 
 //routes admin
+// Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('layouts.admin.dashboard');
     })->name('dashboard');
@@ -52,6 +69,6 @@ Route::get('/', function () {
     Route::get('/show-log', function () {
         return view('layouts.admin.log');
     });
-
+// });
 
 

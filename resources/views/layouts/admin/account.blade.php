@@ -10,7 +10,6 @@
             <button id="openModalBtn" type="button" class="btn btn-info font-weight-bolder font-size-sm" data-bs-toggle="modal" data-bs-target="#addUserModal">
                 Thêm tài khoản
             </button>
-
         </div>
     </div>
     <!--end::Header-->
@@ -32,7 +31,7 @@
                         <th>Khóa/Mở khóa</th>
                     </tr>
                 </thead>
-                <tbody id="content-table">
+                <tbody id="users-table">
                     
                 </tbody>
             </table>
@@ -53,7 +52,6 @@
                 <form id="addUserForm">
                     <div class="modal-header">
                         <h5 class="modal-titleS" id="addUserModalLabel">Thêm tài khoản</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -67,26 +65,26 @@
                         <div class="error" id="phone-error"></div>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-3" id="row-email">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                         <div class="error" id="email-error"></div>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="mb-3" id="row-password">
                         <label for="password" class="form-label">Mật khẩu</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                         <div class="error" id="password-error"></div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="row-confirmPassword">
                         <label for="password" class="form-label">Xác nhận mật khẩu</label>
                         <input type="password" class="form-control" id="confirmPassword" name="password" required>
                         <div class="error" id="password_confirmation-error"></div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="role" class="form-label">Vai trò</label>
+                        <label for="role" class="form-label">Vai trò: </label>
                         <select class="form-select" id="role" name="role" required>
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
@@ -95,10 +93,13 @@
                 </form>
                 <div class="modal-footer">
                     <button id="addUser-btn" type="button" class="btn btn-primary">Thêm</button>
+                    <button id="updateUser-btn" type="button" class="btn btn-primary" style="display: none;" >Cập nhật</button>
                 </div>
             </div>
         </div>
     </div>
+
+
     <!--end::Body-->
 </div>
 

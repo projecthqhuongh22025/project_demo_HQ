@@ -18,14 +18,13 @@
                     <tr class="text-uppercase">
                         <th class="pl-0">id</th>
                         <th>Tên admin</th>
-                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Id đối tượng</th>
+                        <th>Email đối tượng</th>
                         <th>Hành động</th>
-                        <th>Tương tác với</th>
-                        <th>Data</th>
-                        <th>Khóa/Mở khóa</th>
                     </tr>
                 </thead>
-                <tbody id="content-table">
+                <tbody id="content-table-log">
                     
                 </tbody>
             </table>
