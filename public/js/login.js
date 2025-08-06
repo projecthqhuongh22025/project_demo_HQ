@@ -37,7 +37,7 @@ function login() {
                 return;
             }
             if (xhr.status === 423) {
-                alert(res.message);
+                alert(xhr.responseJSON.message);
             }
 
             //Quá nhiều lần đăng nhập sai (429)
@@ -49,10 +49,6 @@ function login() {
             }
         }
     });
-}
-
-function showQRcode(){
-
 }
 
 $(document).on('click', '#login-btn', function (event) {

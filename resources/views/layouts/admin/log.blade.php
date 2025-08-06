@@ -16,12 +16,12 @@
                 id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
-                        <th class="pl-0">id</th>
                         <th>Tên admin</th>
                         <th>Email</th>
                         <th>Id đối tượng</th>
                         <th>Email đối tượng</th>
                         <th>Hành động</th>
+                        <th>Thời gian</th>
                     </tr>
                 </thead>
                 <tbody id="content-table-log">

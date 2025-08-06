@@ -130,11 +130,6 @@ class UserController extends Controller
 
         $user->save();
 
-        return response()->json([
-            'message' => $user->is_locked ? 'Tài khoản đã bị khóa' : 'Tài khoản đã được mở khóa',
-            'is_locked' => $user->is_locked,
-        ]);
-
         AdminLog::create([
             'admin_id'    => Auth::id(),
             'action'      => 'Lock/Unlock User',
@@ -144,8 +139,8 @@ class UserController extends Controller
             'ip'          => $request->ip(),
         ]);
         return response()->json([
-            'message' => 'Khóa tài khoản thành công',
-            'user' => $user
+            'message' => $user->is_locked ? 'Tài khoản đã bị khóa' : 'Tài khoản đã được mở khóa',
+            'is_locked' => $user->is_locked,
         ]);
     }
 

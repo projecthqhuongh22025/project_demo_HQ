@@ -22,7 +22,6 @@
                 id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
-                        <th class="pl-0">id</th>
                         <th>Tên</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>

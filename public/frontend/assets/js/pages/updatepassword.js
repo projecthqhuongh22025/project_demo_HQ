@@ -2,7 +2,7 @@ function updatePassword(){
     const data = {
         current_password: $('#current_password').val(),
         new_password: $('#new_password').val(),
-        new_password_confirmation: $('#confirmPassword').val(),
+        new_password_confirmation: $('#new_password_confirmation').val(),
     };
 
     $.ajax({
@@ -18,8 +18,10 @@ function updatePassword(){
             window.location.href = "/"
         },
         error: function (xhr, status, error) {
+            console.log(xhr.status);
             if (xhr.status === 422) {
                 const errors = xhr.responseJSON.errors;
+                console.log(errors);
                 $.each(errors, function (key, messages) {
                     $(`#${key}-error`).text(messages[0]);
                 });
@@ -29,7 +31,6 @@ function updatePassword(){
 }
 
 $(document).on('click', '#resetpassword-btn', function (event) {
-    console.log("aaaaaaaa");
     event.preventDefault();
     $('.error').text('');
     updatePassword();

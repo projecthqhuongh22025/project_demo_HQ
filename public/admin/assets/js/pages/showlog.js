@@ -11,11 +11,20 @@ function showLog(){
             contentlogs.empty();
             console.log(data.data);
             data.data.forEach(function (log) {
+                const dateVN = new Date(log.created_at);
+
+                const formattedDate = dateVN.toLocaleString('vi-VN', {
+                    timeZone: 'Asia/Ho_Chi_Minh',
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                });
                 const row = `
                     <tr>
-                        <td class="pl-0">
-                            <span class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">${log.id}</span>
-                        </td>
                         <td>
                             <span  class="text-dark-75 font-weight-bolder d-block font-size-lg">${log.admin.name}</span>
                         </td>
@@ -30,6 +39,9 @@ function showLog(){
                         </td>
                         <td>
                             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">${log.action}</span>
+                        </td>
+                        <td>
+                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">${formattedDate}</span>
                         </td>
                     </tr>
                 `

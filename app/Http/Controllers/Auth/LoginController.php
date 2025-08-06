@@ -50,7 +50,32 @@ class LoginController extends Controller
         }
         
         if (!Hash::check($request->password, $user->password)) {
-            RateLimiter::hit($this->throttleKey($request), 60); // khóa 60 giây nếu vượt giới hạn
+            $key = $this->throttleKey($request);
+            $key = $this->throttleKey($request);
+            $maxAttempts = 6;
+
+            // Đếm số lần sai hiện tại
+            $attempts = RateLimiter::attempts($key);
+
+            if ($attempts >= $maxAttempts) {
+                // Clear toàn bộ và khóa lại đúng 60s từ bây giờ
+                RateLimiter::clear($key);
+
+                // Tạo lại key với delay 60s thủ công bằng cách tính expire timestamp
+                $seconds = 60;
+                $until = now()->addSeconds($seconds);
+
+                // hit 1 lần duy nhất, delay chính xác
+                RateLimiter::hit($key, $until);
+
+                throw ValidationException::withMessages([
+                    'email' => ["Bạn đã nhập sai quá nhiều lần. Vui lòng thử lại sau {$seconds} giây."],
+                ]);
+            }
+
+            // Nếu chưa tới max, tăng lần sai
+            RateLimiter::hit($key);
+
             throw ValidationException::withMessages([
                 'email' => ['Thông tin đăng nhập không chính xác.'],
             ]);
