@@ -11,21 +11,21 @@
                     style="color: red;">*</label>
                 <input id="current_password" type="password"
                     class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Mật khẩu hiện tại" value="" />
-                <div class="error" id="password-error"></div>
+                <div class="error" id="current_password-error"></div>
             </div>
             <div class="form-group">
                 <label class="font-size-h6 font-weight-bolder text-dark">Mật khẩu mới</label> <label
                     style="color: red;">*</label>
                 <input id="new_password" type="password"
                     class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Mật khẩu mới" value="" />
-                <div class="error" id="password-error"></div>
+                <div class="error" id="new_password-error"></div>
             </div>
             <div class="form-group">
                 <label class="font-size-h6 font-weight-bolder text-dark">Xác nhận mật khẩu</label> <label
                     style="color: red;">*</label>
-                <input id="confirmPassword" type="password"
+                <input id="new_password_confirmation" type="password"
                     class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="Xác nhận mật khẩu" value="" />
-                <div class="error" id="password_confirmation-error"></div>
+                <div class="error" id="new_password_confirmation-error"></div>
             </div>
         </div>
         <!--begin::Form group-->

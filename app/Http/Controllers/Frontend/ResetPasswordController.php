@@ -27,10 +27,10 @@ class ResetPasswordController extends Controller
                 'regex:/[@$!%*#?&]/'  // ký tự đặc biệt
             ],
         ], [
-            'password.required' => 'Vui lòng nhập mật khẩu',
-            'password.min' => 'Mật khẩu phải ít nhất 8 ký tự',
-            'password.regex' => 'Mật khẩu phải chứa ít nhất một chữ thường, một chữ hoa, một số và một ký tự đặc biệt',
-            'password.confirmed' => 'Mật khẩu xác nhận không khớp',
+            'new_password.required' => 'Vui lòng nhập mật khẩu',
+            'new_password.min' => 'Mật khẩu phải ít nhất 8 ký tự',
+            'new_password.regex' => 'Mật khẩu phải chứa ít nhất một chữ thường, một chữ hoa, một số và một ký tự đặc biệt',
+            'new_password.confirmed' => 'Mật khẩu xác nhận không khớp',
         ]);
 
         if ($validator->fails()) {

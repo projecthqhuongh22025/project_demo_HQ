@@ -12,9 +12,6 @@ function getUser() {
             data.forEach(function (user) {
                 const row = `
                     <tr>
-                        <td class="pl-0">
-                            <span class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">${user.id}</span>
-                        </td>
                         <td>
                             <span  class="text-dark-75 font-weight-bolder d-block font-size-lg">${user.name}</span>
                         </td>
