@@ -46,6 +46,14 @@
 						<!--begin::Form-->
 						<form class="form" id="kt_login_singin_form" action="">
 							<!--begin::Form group-->
+							<div id="block_login-modal" class="verify_modal" style="display:none">
+								<div class="verify_content">
+									<h2 id="block_login-text">Thông tin đăng nhập không chính xác</h2>
+									<div class="countdown-box" id="countdownBox">
+										⏳ Vui lòng chờ: <span id="countdown">1:00</span>
+									</div>
+								</div>
+							</div>
 							<div id="content-login_form">
 								<!--begin::Title-->
 								<div class="pb-5 pb-lg-15">
