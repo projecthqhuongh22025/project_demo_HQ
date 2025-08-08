@@ -33,12 +33,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 //routes admin quản trị
-Route::get('/get-user', [UserController::class, 'getUser']);
-Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+//Route::middleware(['auth:sanctum', 'admin'])->group(function () {
+    Route::get('/get-user', [UserController::class, 'getUser']);
     Route::get('/get-user-id/{id}', [UserController::class, 'getUserById']);
     Route::post('/add-user', [UserController::class, 'addUser']);
     Route::put('/update-user/{id}', [UserController::class, 'updateUser']);
     Route::put('/lock-user/{id}', [UserController::class, 'LockAccount']);
     Route::delete('/delete-user/{id}', [UserController::class, 'RemoveUser']);
     Route::get('/show-log', [UserController::class, 'showLog']);
-});
+//});
